@@ -1,0 +1,15 @@
+name: jsonresume-theme-francais
+services:
+  theme:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./input:/app/input
+      - ./output:/app/output
+    environment:
+      - INPUT_DIR=/app/input
+      - OUTPUT_DIR=/app/output
+    command: tail -f /dev/null
+    tty: true
+    stdin_open: true 

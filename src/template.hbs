@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{basics.name}} - CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossOrigin="anonymous"
+    />
+  <style>
+    :root {
+      --color-1: hsl(220 30% 30%);
+      --color-2: hsl(220 30% 15%);
+      --color-3: hsl(220 30% 50%);
+      --color-4: hsl(220 100% 20%);
+      --color-5: hsl(220 100% 35%);
+      --color-6: hsl(220 30% 10%);
+      --color-7: hsl(220 50% 92.5%);
+      --color-8: hsl(220 30% 85%);
+
+      --w-xxxl: 128px;
+      --w-xxl: 64px;
+      --w-xl: 32px;
+      --w-l: 16px;
+      --w-m: 8px;
+      --w-s: 4px;
+      --w-xs: 2px;
+
+      --border-size: 8px;
+      --border-size-2: 8px;
+      --border-size-3: 2px;
+      --border-size-2-negative: -8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--color-1);
+      font-family: "Open Sans", Arial, sans-serif;
+    }
+
+    main {
+      margin: var(--w-xl) auto;
+      margin-top: calc(var(--w-xxl) + var(--w-l));
+      background-color: #FFF;
+      border-radius: var(--w-l);
+      max-width: 960px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      letter-spacing: -1px;
+      font-weight: 800;
+      color: var(--primary-color);
+      text-transform: uppercase;
+    }
+
+    h3 {
+      color: var(--color-4);
+      font-size: 22px;
+    }
+
+    h4 {
+      color: var(--color-5);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    a {
+      color: var(--color-5);
+    }
+
+    .date {
+      color: var(--color-3);
+      font-style: italic;
+      padding-bottom: var(--border-size-3);
+      margin-top: calc(-1 * var(--w-s));
+    }
+
+    .highlights {
+      list-style-type: none;
+    }
+
+    .highlights li {
+      font-size: 16px;
+      line-height: 1.2em;
+    }
+
+    .highlights li:before {
+      content: "•";
+      font-size: 20px;
+      color: var(--color-5);
+      display: inline-block;
+      width: 1em;
+    }
+
+    .company {
+      color: var(--color-4);
+    }
+
+    .company:before {
+      content: "•";
+      color: var(--color-6);
+      display: inline-block;
+      width: 1em;
+      text-align: center;
+    }
+
+    .resume-header {
+      text-align: center;
+      padding: var(--w-xl);
+      padding-top: 0;
+      border-bottom: var(--border-size) solid var(--color-1);
+    }
+
+    .profile-image {
+      width: calc(var(--w-xxxl) * 1.2);
+      height: calc(var(--w-xxxl) * 1.2);
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: calc(-1.2 * var(--w-xxl));
+      border: var(--border-size) solid var(--color-1);
+    }
+
+    .name {
+      color: var(--color-4);
+      margin-top: var(--w-l);
+    }
+
+    .title {
+      color: var(--color-5);
+      font-weight: 700;
+      margin-bottom: var(--w-l);
+    }
+
+    .summary {
+      font-size: 1.4em;
+      font-style: italic;
+      font-weight: lighter;
+      text-wrap: balance;
+      color: var(--color-6);
+    }
+
+    .column-container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .column {
+      width: 61%;
+    }
+
+    .column:not(:first-child) {
+      border-left: var(--border-size) solid var(--color-1);
+      width: 39.1%;
+    }
+
+    .column-block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--w-l);
+      padding: var(--w-xl) var(--w-l);
+    }
+
+    .column-block:not(:first-child) {
+      border-top: var(--border-size) solid var(--color-1);
+    }
+
+    .skill-keyword {
+      display: inline-block;
+      background-color: var(--color-7);
+      padding: 0.0625em 0.25em;
+      border-radius: 0.25em;
+      margin: 0.25em 0.125em;
+      border: 1px solid var(--color-8);
+    }
+
+    .block-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--w-s);
+    }
+
+    .reference {
+      font-style: italic;
+    }
+
+    .location :not(:last-child):after {
+      content: ",";
+      text-align: left;
+      width: 0.25em;
+      display: inline-block;
+    }
+
+    .certificate-name {
+      color: var(--color-5);
+      font-weight: bold;
+    }
+
+    .certificate-issuer {
+      font-weight: 500;
+    }
+
+    .language {
+      color: var(--color-5);
+      font-weight: 700;
+    }
+
+    .fluency {
+      font-weight: 500;
+    }
+
+    .work-item:first-of-type {
+      text-align: center;
+      background-color: var(--color-7);
+      margin: 0 calc(-1 * var(--w-l));
+      padding: var(--w-l);
+      border-top: 1px solid var(--color-8);
+      border-bottom: 1px solid var(--color-8);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header class="resume-header">
+      {{#if basics.imageBase64}}
+      <img src="{{basics.imageBase64}}" alt="{{basics.name}}" class="profile-image">
+      {{/if}}
+      <h1 class="name">{{basics.name}}</h1>
+      <h2 class="title">{{basics.label}}</h2>
+      {{#if basics.summary}}
+      <p class="summary">{{{replace basics.summary '\n' '<br />'}}}</p>
+      {{/if}}
+    </header>
+
+    <div class="column-container">
+      {{#if work}}
+      <div class="column">
+        <section class="column-block">
+          <h3>Expérience Professionnelle</h3>
+          {{#each work}}
+          <section class="block-item work-item">
+            <header>
+              <h4>{{position}} <span class="company"> {{name}}</span></h4>
+              <div class="date">
+                {{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Présent{{/if}}<small> ({{experience}})</small>
+              </div>
+            </header>
+            {{#if summary}}<p>{{{replace summary '\n' '<br />'}}}</p>{{/if}}
+            {{#if highlights}}
+            <ul class="highlights">
+              {{#each highlights}}
+              <li>{{this}}</li>
+              {{/each}}
+            </ul>
+            {{/if}}
+            {{#if skills}}
+            <div class="skill-keywords">
+              {{#each skills}}
+              <small class="skill-keyword">{{this}}</small>
+              {{/each}}
+            </div>
+            {{/if}}
+          </section>
+          {{/each}}
+        </section>
+        {{/if}}
+      </div>
+
+      <div class="column">
+        <section class="column-block">
+          <h3>Contact</h3>
+          <div class="block-item">
+            {{#if basics.location}}
+            <div>
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="location">
+                {{#if basics.location.address}}<span>{{basics.location.address}}</span>{{/if}}
+                {{#if basics.location.city}}<span>{{basics.location.city}}</span>{{/if}}
+                {{#if basics.location.countryCode}}<span>{{basics.location.countryCode}}</span>{{/if}}
+              </span>
+            </div>
+            {{/if}}
+            {{#if basics.email}}
+            <div>
+              <span class="far fa-envelope"></span>
+              <a href="mailto:{{basics.email}}">{{basics.email}}</a>
+            </div>
+            {{/if}}
+          </div>
+          <div class="block-item">
+            {{#if basics.url}}
+            <div>
+              <span class="fas fa-globe"></span>
+              <a href="{{basics.url}}" target="_blank">{{basics.url}}</a>
+            </div>
+            {{/if}}
+            {{#if basics.profiles}}
+            {{#each basics.profiles}}
+            <div>
+              {{#if (eq network 'LinkedIn')}}
+              <span class="fab fa-linkedin"></span>
+              {{/if}}
+              {{#if (eq network 'GitHub')}}
+              <span class="fab fa-github"></span>
+              {{/if}}
+              {{#if (eq network 'CodinGame')}}
+              <span class="fas fa-external-link-alt"></span>
+              {{/if}}
+              <a href="{{url}}" target="_blank">{{network}}</a>
+            </div>
+            {{/each}}
+            {{/if}}
+          </div>
+        </section>
+
+        {{#if skills}}
+        <section class="column-block">
+          <h3>Compétences</h3>
+          {{#each skills}}
+          <section class="skill-category block-item">
+            <header>
+              <h4>{{name}}</h4>
+            </header>
+            <div class="skill-keywords">
+              {{#each keywords}}
+              <span class="skill-keyword">{{this}}</span>
+              {{/each}}
+            </div>
+          </section>
+          {{/each}}
+        </section>
+        {{/if}}
+
+        {{#if languages}}
+        <section class="column-block">
+          <h3>Langues</h3>
+          <div class="block-item">
+            {{#each languages}}
+            <p><span class="language">{{language}}</span> - <span class="fluency">{{fluency}}</span></p>
+            {{/each}}
+          </div>
+        </section>
+        {{/if}}
+
+        {{#if certificates}}
+        <section class="column-block">
+          <h3>Certifications</h3>
+          {{#each certificates}}
+          <p><span class="certificate-name">{{name}}</span><br /><span class="certificate-issuer">{{issuer}}</span> - <span class="date">{{formatYearDate startDate}}</span></p>
+          {{/each}}
+        </section>
+        {{/if}}
+
+        {{#if education}}
+        <section class="column-block">
+          <h3>Formation</h3>
+          <div class="block-item">
+          {{#each education}}
+          <section class="education-item">
+            <header>
+              <h4>{{institution}}</h4>
+              <div class="date">
+                {{#if startDate}}{{formatYearDate startDate}} - {{/if}}{{formatYearDate endDate}}
+                </div>
+            </header>
+            {{#if area}}<p>{{area}}</p>{{/if}}
+          </section>
+          {{/each}}
+          </div>
+        </section>
+        {{/if}}
+
+        {{#if references}}
+        <section class="column-block">
+          <h3>Recommandations</h3>
+          {{#each references}}
+          <section class="block-item">
+            <header>
+              <h4>{{name}}</h4>
+              <small class="reference">{{{replace reference '\n' '<br />'}}}</small>
+            </header>
+          </section>
+          {{/each}}
+        </section>
+        {{/if}}
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "jsonresume-theme-francais",
+  "version": "1.0.0",
+  "description": "A French-themed JSON Resume theme",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && mkdir -p dist && cp -r src/* dist/",
+    "prepublishOnly": "npm run build",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "jsonresume",
+    "theme",
+    "french",
+    "resume",
+    "cv"
+  ],
+  "author": "François Baveye",
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+} 
